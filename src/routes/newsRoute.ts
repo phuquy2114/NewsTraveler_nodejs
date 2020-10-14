@@ -29,7 +29,7 @@ const newsDAO : NewsDAO = new NewsDAO()
 
 
 const router = Router();
-router.post('/create_news', upload.single('thumbnail'), async (req: Request, res: Response) => {
+router.post('/create-news', upload.single('thumbnail'), async (req: Request, res: Response) => {
 
     console.log('ubhiuhui', req.body);
 

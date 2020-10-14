@@ -22,7 +22,19 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.use(cookieParser());
-app.use(upload.none());
+// app.use(upload.none());
+
+app.use(function (req, res, next) {
+    if (req.path === '/api/v1/news/create-news' && req.method === 'POST') {
+        next();
+    } else {
+        upload.none()(req, res, next);
+    }
+});
+
+app.use(express.static('public'));
+
+
 // Show routes called in console during development
 if (process.env.NODE_ENV === 'development') {
     app.use(morgan('dev'));
