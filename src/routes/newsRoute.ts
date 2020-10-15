@@ -65,4 +65,12 @@ router.post('/create-news', upload.single('thumbnail'), async (req: Request, res
 
 });
 
+router.get('/all', async (req: Request, res: Response) => {
+    const insertValue = await newsDAO.getAll();
+    dataResponse.status = 200;
+    dataResponse.data = insertValue;
+    dataResponse.message = 'Successfull';
+    return res.status(OK).json(dataResponse);
+});
+
 export default router;
