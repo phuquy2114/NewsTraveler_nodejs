@@ -29,7 +29,8 @@ const newsDAO : NewsDAO = new NewsDAO()
 
 
 const router = Router();
-router.post('/create-news', upload.single('thumbnail'), async (req: Request, res: Response) => {
+router.post('/create-news', upload.single('thumbnail'),upload.single('thumbnail1'),
+upload.single('thumbnail2'),upload.single('thumbnail3'), async (req: Request, res: Response) => {
 
     console.log('ubhiuhui', req.body);
 
@@ -46,8 +47,23 @@ router.post('/create-news', upload.single('thumbnail'), async (req: Request, res
      news.title = req.body.title;
      news.decscription = req.body.decscription;
 
+     news.decscription1 = req.body.decscription1;
+
+     news.decscription2 = req.body.decscription2;
+
+     news.decscription3 = req.body.decscription3;
+
      console.log((req as MulterRequest).file.originalname);
      news.thumbnail = (req as MulterRequest).file.originalname;
+
+     console.log((req as MulterRequest).file.originalname);
+     news.thumbnail1 = (req as MulterRequest).file.originalname;
+
+     console.log((req as MulterRequest).file.originalname);
+     news.thumbnail2 = (req as MulterRequest).file.originalname;
+
+     console.log((req as MulterRequest).file.originalname);
+     news.thumbnail3 = (req as MulterRequest).file.originalname;
 
      try {
         const insertValue = await newsDAO.insert(news);
