@@ -29,8 +29,8 @@ const newsDAO : NewsDAO = new NewsDAO()
 
 
 const router = Router();
-router.post('/create-news', upload.single('thumbnail'),upload.single('thumbnail1'),
-upload.single('thumbnail2'),upload.single('thumbnail3'), async (req: Request, res: Response) => {
+router.post('/create-news', upload.single('thumbnail'),upload.single('thumbnailone'),
+upload.single('thumbnailtwo'),upload.single('thumbnailthree'), async (req: Request, res: Response) => {
 
     console.log('ubhiuhui', req.body);
 
@@ -47,23 +47,23 @@ upload.single('thumbnail2'),upload.single('thumbnail3'), async (req: Request, re
      news.title = req.body.title;
      news.decscription = req.body.decscription;
 
-     news.decscription1 = req.body.decscription1;
+     news.decscriptionone = req.body.decscriptionone;
 
-     news.decscription2 = req.body.decscription2;
+     news.decscriptiontwo = req.body.decscriptiontwo;
 
-     news.decscription3 = req.body.decscription3;
+     news.decscriptionthree = req.body.decscriptionthree;
 
      console.log((req as MulterRequest).file.originalname);
      news.thumbnail = (req as MulterRequest).file.originalname;
 
      console.log((req as MulterRequest).file.originalname);
-     news.thumbnail1 = (req as MulterRequest).file.originalname;
+     news.thumbnailone = (req as MulterRequest).file.originalname;
 
      console.log((req as MulterRequest).file.originalname);
-     news.thumbnail2 = (req as MulterRequest).file.originalname;
+     news.thumbnailtwo = (req as MulterRequest).file.originalname;
 
      console.log((req as MulterRequest).file.originalname);
-     news.thumbnail3 = (req as MulterRequest).file.originalname;
+     news.thumbnailthree = (req as MulterRequest).file.originalname;
 
      try {
         const insertValue = await newsDAO.insert(news);
