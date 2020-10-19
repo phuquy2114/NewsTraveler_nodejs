@@ -9,7 +9,7 @@ createConnection({
     "host": "localhost",
     "port": 3306,
     "username": "root",
-    "password": "",
+    "password": "root1234",
     "database": "news_traveller",
     "synchronize": true,
     "logging": false,
