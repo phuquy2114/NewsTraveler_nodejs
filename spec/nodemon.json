@@ -2,5 +2,11 @@
   "watch": ["spec"],
   "ext": "spec.ts",
   "ignore": ["spec/support"],
-  "exec": "ts-node -r tsconfig-paths/register ./spec"
+  "exec": "ts-node -r tsconfig-paths/register ./spec",
+  "events": {
+    "restart": "kill-port 3007",
+    "crash": "kill-port 3007"
+  },
+ "delay": "1500"
 }
+
