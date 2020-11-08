@@ -19,7 +19,7 @@ const storages = multer.diskStorage({
         cb(null, 'src/public/images');
     },
     filename: (req: any, file: any, cb: any) => {
-        cb(null, ~~(Math.random() * 999999) +  "images-" +file.originalname);
+        cb(null, 'upload_at_' + Date.now() + path.extname(file.originalname));
     }
 });
 const upload = multer({ storage: storages });
