@@ -56,13 +56,13 @@ router.post('/create-news', cpUpload, async (req : Request, res) : Promise<any> 
 
     console.log((req as any).files);
 
-     news.thumbnail = (req as any).files.thumbnail[0].originalname;
+     news.thumbnail = (req as any).files.thumbnail[0].filename;
 
-     news.thumbnailone = (req as any).files.thumbnailone[0].originalname;
+     news.thumbnailone = (req as any).files.thumbnailone[0].filename;
 
-     news.thumbnailtwo = (req as any).files.thumbnailtwo[0].originalname;
+     news.thumbnailtwo = (req as any).files.thumbnailtwo[0].filename;
 
-     news.thumbnailthree = (req as any).files.thumbnailthree[0].originalname;
+     news.thumbnailthree = (req as any).files.thumbnailthree[0].filename;
 
      try {
         const insertValue = await newsDAO.insert(news);
@@ -106,13 +106,13 @@ router.post('/edit-news', cpUpload, async (req : Request, res) : Promise<any> =>
 
     console.log((req as any).files);
 
-     news.thumbnail = (req as any).files.thumbnail[0].originalname;
+     news.thumbnail = (req as any).files.thumbnail[0].filename;
 
-     news.thumbnailone = (req as any).files.thumbnailone[0].originalname;
+     news.thumbnailone = (req as any).files.thumbnailone[0].filename;
 
-     news.thumbnailtwo = (req as any).files.thumbnailtwo[0].originalname;
+     news.thumbnailtwo = (req as any).files.thumbnailtwo[0].filename;
 
-     news.thumbnailthree = (req as any).files.thumbnailthree[0].originalname;
+     news.thumbnailthree = (req as any).files.thumbnailthree[0].filename;
 
      try {
         const insertValue = await newsDAO.update(news);
