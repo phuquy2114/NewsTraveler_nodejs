@@ -25,7 +25,7 @@ app.use(cookieParser());
 // app.use(upload.none());
 
 app.use(function (req, res, next) {
-    if (req.path === '/api/v1/news/create-news' && req.method === 'POST') {
+    if (req.path === '/api/v1/news/create-news' || req.path === '/api/v1/news/edit-news' && req.method === 'POST') {
         next();
     } else {
         upload.none()(req, res, next);

@@ -35,16 +35,4 @@ router.get('/', async (req: Request, res: Response) => {
     return res.status(OK).json(data);
 });
 
-router.post('/add-photo',upload.array("thumnail", 4), async (req: Request, res: Response) => {
-    upload(req, res, (err) => {
-        if(err) {
-          res.status(400).send("Something went wrong!");
-        }
-        res.send(req.file);
-      });
-    console.log("create success",insertValue);
-
-    return res.status(OK).json(photo).end();
-});
-
 export default router;
